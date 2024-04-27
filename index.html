@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JAVA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .calculator {
+            width:260px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            margin: 5px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            width: 100%;
+            height: 50px;
+            font-size: 1.2em;
+            text-align: right;
+        }
+    </style>
 </head>
 <body>
 <!-- <button onclick="abc('button click')"> click me </button>
@@ -34,10 +60,60 @@ onclick="abc(this)" src="https://s3.amazonaws.com/images.seroundtable.com/google
 <img onclick="flip(this,'yes')" width="250px" hight="250px" src="data:image/png;base64,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">
 <img onclick="flip(this,'yes')" width="250px" hight="250px" src="data:image/png;base64,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"> -->
 
+
+
+
+
+<div class="calculator">
+    <input type="text" id="display" readonly>
+    <input type="button" value="1" onclick="addToDisplay('1')">
+    <input type="button" value="2" onclick="addToDisplay('2')">
+    <input type="button" value="3" onclick="addToDisplay('3')">
+    <input type="button" value="+" onclick="addToDisplay('+')">
+    <br>
+    <input type="button" value="4" onclick="addToDisplay('4')">
+    <input type="button" value="5" onclick="addToDisplay('5')">
+    <input type="button" value="6" onclick="addToDisplay('6')">
+    <input type="button" value="-" onclick="addToDisplay('-')">
+    <br>
+    <input type="button" value="7" onclick="addToDisplay('7')">
+    <input type="button" value="8" onclick="addToDisplay('8')">
+    <input type="button" value="9" onclick="addToDisplay('9')">
+    <input type="button" value="*" onclick="addToDisplay('*')">
+    <br>
+    <input type="button" value="C" onclick="clearDisplay()">
+    <input type="button" value="0" onclick="addToDisplay('0')">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="/" onclick="addToDisplay('/')">
+</div>
+
+
+
+
 <p id="messageBox">
     <button onclick="cls()">X</button>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, sunt assumenda? Dicta quasi quas molestias esse impedit harum aperiam rem unde natus! Beatae recusandae facere, quos accusantium quas voluptatem reprehenderit?
 </p> 
+<script>
+    function addToDisplay(value) {
+        document.getElementById('display').value += value;
+    }
+
+    function clearDisplay() {
+        document.getElementById('display').value = '';
+    }
+
+    function calculate() {
+        let expression = document.getElementById('display').value;
+        try {
+            let result = eval(expression);
+            document.getElementById('display').value = result;
+        } catch (error) {
+            alert('Invalid expression');
+            clearDisplay();
+        }
+    }
+</script>
 <script src="index.js"></script>
 </body>
 </html>
