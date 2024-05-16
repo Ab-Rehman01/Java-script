@@ -701,6 +701,106 @@ var arr1 = ["UIY", "TYU", "QWE", "FGH", "TRT", "MOM"];
 
 // console.log(center.previousSibling);
 
-var pera = document.getElementById("pera");
-console.log(pera.childNodes[0]);
-pera.childNodes[0].nodeValue = "AHJSA";
+// var pera = document.getElementById("pera");
+// console.log(pera.childNodes[0]);
+// pera.childNodes[0].nodeValue ="AHJSA";
+
+
+// var parent =document.getElementById("parent");
+// var arr=parent.childNodes;
+// for (var i =0; i<arr.length; i++){
+//     console.log(arr[i]);
+//     if(arr[i].nodeType==1){
+//         console.log(arr[i].nodeName);
+//         arr[i].style.color ="red";
+//      }
+//     }
+
+
+//     function addElement(){
+//         var pera =document.createElement("p");
+//         var text = document.createTextNode("some dummy text");
+
+//         pera.appendChild(text);
+//         console.log(pera);
+       
+//     }
+
+//     function addElement(){
+//         var pera =document.createElement("p");
+//         var text = document.createTextNode("some dummy text");
+
+//         pera.appendChild(input);
+//         console.log(pera);
+       
+//     }
+
+var parent =document.getElementById("parent");
+var inp= document.getElementById("inp");
+function delList(btn){
+    console.log(btn.parentNode);
+    btn.parent.remove();
+}
+
+// function abc(){
+//     console.log("ABC Work");
+// }
+
+// Inp.setAttribute("class","abc");
+// inp.setAttribute("id","abc");
+// inp.setAttribute("onfocus");
+function addElement(){
+    var pera = document.createElement("p");
+    var text =document.createTextNode(inp.value);
+    pera.appendChild(text);
+    
+    var editBtn=document.createElement("BUTTON");
+    var editText =document.createTextNode("Edit");
+    editBtn.appendChild(editText);
+
+    var deleteBtn= document.createElement("BUTTON");
+    var deletText = document.createTextNode("Delete");
+    deleteBtn.setAttribute("onclick","delList(this)");
+    deleteBtn.appendChild(deletText);
+
+  para.appendChild(editBtn);
+  para.appendChild(deleteBtn);
+ console.log(para) 
+}
+
+
+
+
+var student1 ={
+    name:"skjs",
+    cnic:"4555455",
+    rollNo:"5454666",
+    contact:"55446698",
+
+
+}
+//student1.name="jhjhkkkkj";
+//student1.contact="031123";
+//delete student1.contact;
+//var a="inst" in student1;
+//student1.age=18; for add
+//console.log(a); check true false
+console.log(student1);
+
+
+var obj ={
+    name:"abc",
+    age:18,
+    inactive :true,
+    hobbies: ["Ss","ssd","sssd"],
+    address:{
+        houseNo:"tYsdpd",
+        city:"kghi",
+        country:"Pal",
+    },
+    calculation: function (a,b){
+        return a+b;
+    },
+};
+var a=obj.calculation(400,600);
+console.log(obj);
