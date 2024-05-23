@@ -804,3 +804,10 @@ var obj ={
 };
 var a=obj.calculation(400,600);
 console.log(obj);
+
+
+
+//23 may
+
+// web control
+window.open
