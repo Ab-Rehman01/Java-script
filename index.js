@@ -1,4 +1,4 @@
-//hj
+// alert("ABC")
 
 // var a = "ABC"
 
