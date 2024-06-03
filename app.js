@@ -33,7 +33,7 @@ window.addData=function(){
     key=key.toString().slice(2);
 
     var reference = ref(db, `tasks/${key}`);
-    Push(reference, obj);
+    push(reference, obj);
 };
 
 
