@@ -1,6 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+  import  {Set,Push,Ref,getDatabase}  from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,8 +21,8 @@
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
-var inp =document.get
+  const db=getDatabase();
+var inp =document.getElementById("inp")
 window.addData=function(){
     var obj ={
         text: inp.value,
@@ -32,5 +33,22 @@ window.addData=function(){
     key=key.toString().slice(2);
 
     var reference = ref(db, `tasks/${key}`);
-    setInterval(reference, obj);
+    Push(reference, obj);
 };
+
+
+function getData(){
+  onValue(reference,function(taskData){
+    allTask = taskData.val();
+    console.log(allTask,"Task Data");
+    var arr = object.values(allTask);
+    console.log(arr,"Task Data");
+    parent.innerHTML ="";
+    for (var i = 0; i<arr.length; i++){
+      parent.innerHTML += `<p>${arr[i].text}<button
+      onclick="removelist(`${arr[i].id}`)">Remove</button></p>`;
+    }
+    
+  });
+}
+getData();
